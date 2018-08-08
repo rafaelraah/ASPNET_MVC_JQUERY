@@ -7,18 +7,23 @@ namespace ASPNET_MVC_JQUERY.Servico
 {
     public class PersonagemServico
     {
-        public PersonagemRepository PersonagemRepo = null;
+        private PersonagemRepository PersonagemRepo = null;
 
         private PersonagemServico()
         {
             PersonagemRepo = PersonagemRepository.getInstance();
         }
         
-        private void IniciarPersonagens(List<IPersonagem> personagens)
+        public static PersonagemServico getInstance()
+        {
+            return new PersonagemServico();
+        }
+
+        public void IniciarPersonagens(List<IPersonagem> personagens)
         {
             if (PersonagemRepo.ListarTodos() == null)
             {
-                PersonagemRepo.Lista = new List<IPersonagem>();
+                PersonagemRepository.Lista = new List<IPersonagem>();
                 foreach(var personagem in personagens)
                 {
                     Inserir(personagem);

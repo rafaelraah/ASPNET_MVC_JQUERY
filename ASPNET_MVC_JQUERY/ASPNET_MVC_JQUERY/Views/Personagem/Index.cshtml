@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<body>
+    <div id="divClientes">
+        @await Component.InvokeAsync("List")
+    </div>
+</body>

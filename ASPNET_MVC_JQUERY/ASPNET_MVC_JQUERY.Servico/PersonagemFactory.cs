@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ASPNET_MVC_JQUERY.Servico
 {
     //Excluir essa classe, implementação errada do pattern
-    class PersonagemFactory
+    public class PersonagemFactory
     {
     }
 }

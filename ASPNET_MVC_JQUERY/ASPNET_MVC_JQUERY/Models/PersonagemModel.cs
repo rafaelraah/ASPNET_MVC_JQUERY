@@ -23,7 +23,7 @@ namespace ASPNET_MVC_JQUERY.Models
             DataCriacao = dataCriacao;
         }
 
-        public static IPersonagem GetInstance(int IdPersonagem, string Nickname, string Classe, DateTime DataCriacao)
+        public static PersonagemModel GetInstance(int IdPersonagem, string Nickname, string Classe, DateTime DataCriacao)
         {
             return new PersonagemModel(IdPersonagem, Nickname, Classe, DataCriacao);
         }

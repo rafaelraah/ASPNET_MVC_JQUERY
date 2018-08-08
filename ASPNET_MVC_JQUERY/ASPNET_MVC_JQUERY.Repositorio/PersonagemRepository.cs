@@ -9,7 +9,7 @@ namespace ASPNET_MVC_JQUERY.Repositorio
 {
     public class PersonagemRepository : IRepositoryBase<IPersonagem>
     {
-        public List<IPersonagem> Lista { get; set; }
+        public static List<IPersonagem> Lista { get; set; }
         
         private PersonagemRepository() {
             
@@ -22,9 +22,13 @@ namespace ASPNET_MVC_JQUERY.Repositorio
 
         public int Inserir(IPersonagem entrada)
         {
-            entrada.IdPersonagem = Lista.Last<IPersonagem>().IdPersonagem + 1;
-            Lista.Add(entrada);
-            return entrada.IdPersonagem;
+            try { 
+                entrada.IdPersonagem = Lista.Last<IPersonagem>().IdPersonagem + 1;
+                Lista.Add(entrada);
+            }catch(Exception ex) { 
+                return entrada.IdPersonagem;
+            }
+            return 0;
         }
 
         public bool Alterar(IPersonagem entrada)
